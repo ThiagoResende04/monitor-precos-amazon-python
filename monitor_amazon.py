@@ -3,8 +3,7 @@ from openpyxl import Workbook
 from playwright.sync_api import sync_playwright
 
 
-def salvar_em_excel(dados_produtos):
-    """Salva os produtos reais coletados no Excel."""
+def salvar_em_excel(dados_produtos):    
     print("\n[Excel] Criando planilha com dados reais da Amazon...")
     wb = Workbook()
     aba_ativa = wb.active
@@ -81,7 +80,7 @@ def rodar_robo_amazon():
                 ):
 
                     try:
-                        # 💵 LIMPEZA AVANÇADA DO PREÇO REAIS
+                        # LIMPEZA AVANÇADA DO PREÇO REAIS
                         texto_reais = (
                             bloco.locator(".a-price-whole").first.inner_text()
                         )
@@ -108,10 +107,10 @@ def rodar_robo_amazon():
                         preco_final = float(f"{texto_reais}.{texto_centavos}")
 
                     except Exception as e_preco:
-                        # Se falhar na conversão, ignoramos este item e continuamos
+                        # Se falhar na conversão, ignorar este item e continuar
                         continue
 
-                    # Evita duplicados na lista
+                    # Evita duplicidade na lista
                     if not any(p["produto"] == titulo for p in lista_produtos):
                         lista_produtos.append(
                             {"produto": titulo, "preco_reais": preco_final}
@@ -120,13 +119,12 @@ def rodar_robo_amazon():
                             f"-> Capturado: {titulo[:45]}... | R$ {preco_final}"
                         )
 
-                # Limitamos a captura aos 5 primeiros válidos
+                # Limitei a captura aos 5 primeiros válidos
                 if len(lista_produtos) >= 5:
                     break
             except Exception:
                 continue
-
-        # Salvando os dados reais na planilha
+        
         if lista_produtos:
             salvar_em_excel(lista_produtos)
         else:
