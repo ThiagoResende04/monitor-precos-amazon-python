@@ -31,7 +31,11 @@ Durante o desenvolvimento, o projeto enfrentou sistemas anti-bot extremamente ag
 3. **Seletores Robustos:** Abandono de classes CSS dinâmicas (que mudam a cada hora) em prol de estruturas semânticas rígidas baseadas em blocos de resultados (`data-component-type`) e tags textuais (`h2`).
 
 ---
+## Prints
+<img width="959" height="635" alt="Código Monitor de preços Amazon rodando" src="https://github.com/user-attachments/assets/1e0ffcb0-2360-494c-a1f2-4604a0b4fe66" />
+<img width="1366" height="380" alt="Arquivo Excel" src="https://github.com/user-attachments/assets/ec9fad96-1b5e-4f21-91c0-572caac27457" />
 
+---
 ## 📦 Como Instalar e Rodar o Projeto
 
 ### 1. Clonar o Repositório
